@@ -19,10 +19,10 @@ export class WindowStateHandler {
 			const userDataDir = jetpack.cwd(app.getPath('userData'));
 			this.state = {
 				...this.state,
-				...(await userDataDir.readAsync(`window-state-${ this.name }.json`, 'json') || {}),
+				...(await userDataDir.readAsync(`window-state-${this.name}.json`, 'json') || {}),
 			};
 		} catch (error) {
-			console.error(`Failed to load "${ this.name }" window state`);
+			console.error(`Failed to load "${this.name}" window state`);
 			console.error(error);
 		}
 	}
@@ -35,11 +35,11 @@ export class WindowStateHandler {
 
 		try {
 			const userDataDir = jetpack.cwd(app.getPath('userData'));
-			await userDataDir.writeAsync(`window-state-${ this.name }.json`, this.state, {
+			await userDataDir.writeAsync(`window-state-${this.name}.json`, this.state, {
 				atomic: true,
 			});
 		} catch (error) {
-			console.error(`Failed to save "${ this.name }" window state`);
+			console.error(`Failed to save "${this.name}" window state`);
 			console.error(error);
 		}
 	}
@@ -89,7 +89,9 @@ export class WindowStateHandler {
 		}
 
 		if (state.isHidden) {
-			window.hide();
+			window.minimize();
+			state.isHidden = false;
+			state.isMinimized = true;
 		} else if (!state.isMinimized) {
 			window.show();
 		}

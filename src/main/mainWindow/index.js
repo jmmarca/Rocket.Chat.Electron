@@ -1,7 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { WindowStateHandler } from './state';
 
-
 let mainWindow = null;
 
 let state = {
@@ -34,7 +33,9 @@ async function attachWindowStateHandling(mainWindow) {
 		mainWindow.blur();
 
 		if (process.platform === 'darwin' || state.hideOnClose) {
-			mainWindow.hide();
+			//comentado por JEAN MICHEL MARCA 26/09/2019 para não permitir fechar o chat
+			//mainWindow.hide();
+			mainWindow.minimize();
 		} else if (process.platform === 'win32') {
 			mainWindow.minimize();
 		} else {
@@ -78,7 +79,7 @@ async function createMainWindow() {
 		},
 	});
 	attachWindowStateHandling(mainWindow);
-	mainWindow.loadFile(`${ app.getAppPath() }/app/public/app.html`);
+	mainWindow.loadFile(`${app.getAppPath()}/app/public/app.html`);
 
 	if (process.env.NODE_ENV === 'development') {
 		mainWindow.webContents.openDevTools();
@@ -120,3 +121,4 @@ export async function focus() {
 }
 
 ipcMain.on('focus', focus);
+

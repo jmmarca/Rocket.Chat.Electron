@@ -23,7 +23,7 @@ const wrapWindowOpen = (defaultWindowOpen) => (href, frameName, features) => {
 		features = [
 			features,
 			'nodeIntegration=true',
-			`preload=${ `${ app.getAppPath() }/app/preload.js` }`,
+			`preload=${`${app.getAppPath()}/app/preload.js`}`,
 		].join(',');
 	}
 

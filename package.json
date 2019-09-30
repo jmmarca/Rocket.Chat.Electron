@@ -35,6 +35,7 @@
     "i18next-node-fs-backend": "^2.1.1",
     "i18next-sync-fs-backend": "^1.1.0",
     "mem": "^4.1.0",
+    "node-gyp": "^5.0.3",
     "spellchecker": "^3.5.0"
   },
   "devDependencies": {

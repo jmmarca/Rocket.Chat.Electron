@@ -58,7 +58,12 @@ const updateServers = () => {
 };
 
 
-const updateWindowState = () => tray.setState({ isMainWindowVisible: getCurrentWindow().isVisible() });
+const updateWindowState = () => {
+	// if (!getCurrentWindow().isVisible()) {
+	// 	getCurrentWindow().minimize();
+	// }
+	tray.setState({ isMainWindowVisible: !getCurrentWindow().isMinimized() });
+}
 
 const destroyAll = () => {
 	try {
@@ -225,11 +230,15 @@ export default () => {
 
 	getCurrentWindow().on('hide', updateWindowState);
 	getCurrentWindow().on('show', updateWindowState);
+	getCurrentWindow().on('minimize', updateWindowState);
+	getCurrentWindow().on('restore', updateWindowState);
+	getCurrentWindow().on('maximize', updateWindowState);
+
 
 	tray.on('created', () => getCurrentWindow().emit('set-state', { hideOnClose: true }));
 	tray.on('destroyed', () => getCurrentWindow().emit('set-state', { hideOnClose: false }));
 	tray.on('set-main-window-visibility', (visible) =>
-		(visible ? getCurrentWindow().show() : getCurrentWindow().hide()));
+		(visible ? getCurrentWindow().restore() : getCurrentWindow().minimize()));
 	tray.on('quit', () => app.quit());
 
 

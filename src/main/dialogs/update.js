@@ -45,7 +45,7 @@ async function open({ currentVersion = app.getVersion(), newVersion } = {}) {
 
 	window.params = { currentVersion, newVersion };
 
-	window.loadFile(`${ app.getAppPath() }/app/public/dialogs/update.html`);
+	window.loadFile(`${app.getAppPath()}/app/public/dialogs/update.html`);
 }
 
 function close() {

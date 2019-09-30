@@ -156,13 +156,13 @@ const createTemplate = ({
 					click: () => events.emit('toggle', 'showFullScreen'),
 				},
 			] : [
-				{
-					label: i18n.__('menus.showMenuBar'),
-					type: 'checkbox',
-					checked: showMenuBar,
-					click: () => events.emit('toggle', 'showMenuBar'),
-				},
-			]),
+					{
+						label: i18n.__('menus.showMenuBar'),
+						type: 'checkbox',
+						checked: showMenuBar,
+						click: () => events.emit('toggle', 'showMenuBar'),
+					},
+				]),
 			{
 				label: i18n.__('menus.showServerList'),
 				type: 'checkbox',
@@ -208,7 +208,7 @@ const createTemplate = ({
 				label: host.title.replace(/&/g, '&&'),
 				type: currentServerUrl ? 'radio' : 'normal',
 				checked: currentServerUrl === host.url,
-				accelerator: `CommandOrControl+${ i + 1 }`,
+				accelerator: `CommandOrControl+${i + 1}`,
 				id: host.url,
 				click: () => events.emit('select-server', host),
 			})),

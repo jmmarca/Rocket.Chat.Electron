@@ -60,3 +60,5 @@ async function prepareApp() {
 	await getMainWindow();
 	process.argv.slice(2).forEach(processDeepLink);
 })();
+
+
