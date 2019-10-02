@@ -78,11 +78,9 @@
 	},
 	"linux": {
 		"target": [
-			"tar.gz",
 			"deb",
-			"rpm",
-			"snap"
-		],
+			"rpm"
+        ],
 		"executableName": "prefeiturachat-desktop",
 		"category": "GNOME;GTK;Network;InstantMessaging",
 		"desktop": {
