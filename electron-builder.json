@@ -21,7 +21,7 @@
 		"bundleVersion": "52",
 		"helperBundleId": "chat.rocket.electron.helper",
 		"type": "distribution",
-		"artifactName": "rocketchat-${version}.${ext}",
+		"artifactName": "prefeiturachat-${version}.${ext}",
 		"extendInfo": {
 			"NSMicrophoneUsageDescription": "I need access to your microphone to record the audio you want to send.",
 			"NSCameraUsageDescription": "I need access to your camera to record the video you want to send."
@@ -50,7 +50,7 @@
 	"mas": {
 		"entitlements": "build/entitlements.mas.plist",
 		"entitlementsInherit": "build/entitlements.mas.inherit.plist",
-		"artifactName": "rocketchat-${version}-mas.${ext}"
+		"artifactName": "prefeiturachat-${version}-mas.${ext}"
 	},
 	"win": {
 		"target": [
@@ -63,7 +63,7 @@
 		"perMachine": false,
 		"allowElevation": true,
 		"allowToChangeInstallationDirectory": true,
-		"artifactName": "rocketchat-setup-${version}.${ext}"
+		"artifactName": "prefeiturachat-setup-startup-x86_${version}.${ext}"
 	},
 	"appx": {
 		"backgroundColor": "#2f343d",
@@ -74,7 +74,7 @@
 			"en-GB",
 			"pt-BR"
 		],
-		"artifactName": "rocketchat-${version}-${arch}.${ext}"
+		"artifactName": "prefeiturachat-${version}-${arch}.${ext}"
 	},
 	"linux": {
 		"target": [
@@ -83,7 +83,7 @@
 			"rpm",
 			"snap"
 		],
-		"executableName": "rocketchat-desktop",
+		"executableName": "prefeiturachat-desktop",
 		"category": "GNOME;GTK;Network;InstantMessaging",
 		"desktop": {
 			"StartupWMClass": "Rocket.Chat",

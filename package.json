@@ -1,16 +1,16 @@
 {
-  "name": "rocketchat",
-  "productName": "Rocket.Chat",
-  "description": "Rocket.Chat Native Cross-Platform Desktop Application via Electron.",
-  "version": "2.16.0-develop",
-  "author": "Rocket.Chat Support <support@rocket.chat>",
-  "copyright": "© 2019, Rocket.Chat",
-  "homepage": "https://rocket.chat",
+  "name": "prefeiturachat",
+  "productName": "Prefeitura Chat",
+  "description": "Prefeitura Chat.",
+  "version": "2.16.1-jmmarca-custom",
+  "author": "Prefeitura Chat",
+  "copyright": "© 2019, Prefeitura Chat",
+  "homepage": "http://www.cascavel.pr.gov.br",
   "license": "MIT",
   "main": "app/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RocketChat/Rocket.Chat.Electron.git"
+    "url": "https://github.com/jmmarca/Rocket.Chat.Electron.git"
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",

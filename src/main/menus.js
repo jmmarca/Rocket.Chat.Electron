@@ -307,13 +307,18 @@ class Menus extends EventEmitter {
 		const template = createTemplate({ appName: app.getName(), ...this.state }, this);
 		const menu = Menu.buildFromTemplate(template);
 		Menu.setApplicationMenu(menu);
+        
+        const { showMenuBar } = this.state;
+		const mainWindow = await getMainWindow();
+        mainWindow.setAutoHideMenuBar(false);
+		mainWindow.setMenuBarVisibility(false);
 
-		if (process.platform !== 'darwin') {
+		/*if (process.platform !== 'darwin') {
 			const { showMenuBar } = this.state;
 			const mainWindow = await getMainWindow();
 			mainWindow.setAutoHideMenuBar(!showMenuBar);
 			mainWindow.setMenuBarVisibility(!!showMenuBar);
-		}
+		}*/
 
 		this.emit('update');
 	}

@@ -1,6 +1,6 @@
 !ifndef BUILD_UNINSTALLER
   Function AddToStartup
-    CreateShortCut "$SMSTARTUP\Rocket.Chat.lnk" "$INSTDIR\Rocket.Chat.exe" ""
+    CreateShortCut "$SMSTARTUP\Prefeitura Chat.lnk" "$INSTDIR\Prefeitura Chat.exe" ""
   FunctionEnd
 
   !define MUI_FINISHPAGE_SHOWREADME
@@ -11,6 +11,8 @@
 !ifdef BUILD_UNINSTALLER
   Function un.AddAppData
     RMDir /r "$APPDATA\Rocket.Chat"
+	  RMDir /r "$APPDATA\Prefeitura.Cascavel.Chat"
+    RMDir /r "$APPDATA\Prefeitura Chat"
   FunctionEnd
 
   ; Using the read me setting to add option to remove app data
@@ -29,11 +31,23 @@
   ${EndIf}
   !insertMacro disableAutoUpdates
   Delete "$SMSTARTUP\Rocket.Chat+.lnk"
+  Delete "$SMSTARTUP\Rocket.Chat.lnk"
+  Delete "$SMSTARTUP\Prefeitura.Cascavel.Chat.lnk"
+  RMDir /r "$APPDATA\Rocket.Chat"
+	RMDir /r "$APPDATA\Prefeitura.Cascavel.Chat"  
+  
+  CreateShortCut "$SMSTARTUP\Prefeitura Chat.lnk" "$INSTDIR\Prefeitura Chat.exe" ""
+  Exec "$INSTDIR\Prefeitura Chat.exe"
 !macroend
 
 !macro customUnInstall
   ${IfNot} ${Silent}
     Delete "$SMSTARTUP\Rocket.Chat.lnk"
+	  Delete "$SMSTARTUP\Prefeitura.Cascavel.Chat.lnk"
+    Delete "$SMSTARTUP\Prefeitura Chat.lnk"
+    RMDir /r "$APPDATA\Rocket.Chat"
+    RMDir /r "$APPDATA\Prefeitura.Cascavel.Chat"   
+    RMDir /r "$APPDATA\Prefeitura Chat"
   ${EndIf}
 !macroend
 
